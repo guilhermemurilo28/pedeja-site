@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PedeJá — Seu delivery próprio, no WhatsApp e sem comissão</title>
+<meta name="description" content="Cardápio digital com pedidos direto no seu WhatsApp, painel de gestão completo e zero comissão por pedido. No ar em 48 horas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--roxo:#6d28d9;--roxo2:#7c3aed;--roxoE:#4c1d95;--verde:#22c55e;--verde2:#16a34a;
+ --menta:#4ade80;--navy:#171a2b;--txt:#1f2430;--mut:#6b7280;--bg:#ffffff;--cz:#f6f5fa}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',system-ui,sans-serif;color:var(--txt);background:var(--bg)}
+a{text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+/* NAV */
+nav{background:#fff;position:sticky;top:0;z-index:50;box-shadow:0 1px 10px rgba(0,0,0,.06)}
+.nav-in{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;max-width:1080px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:1.25rem;color:var(--txt)}
+.logo .ic{width:34px;height:34px;border-radius:10px;background:var(--roxo);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1rem}
+.logo .ja{background:var(--verde);color:#fff;border-radius:8px;padding:1px 8px}
+.btn{display:inline-block;padding:13px 26px;border-radius:12px;font-weight:700;font-size:.95rem;transition:.15s}
+.btn-verde{background:var(--verde);color:#fff}.btn-verde:hover{background:var(--verde2)}
+.btn-borda{background:#fff;color:var(--roxo);border:2px solid #e9e4f5}.btn-borda:hover{border-color:var(--roxo)}
+.btn-nav{padding:9px 20px}
+/* HERO */
+.hero{background:linear-gradient(150deg,var(--roxo2),var(--roxo) 55%,var(--roxoE));color:#fff;padding:56px 0 70px}
+.hero-in{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center}
+.tagchip{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25);
+ border-radius:20px;padding:6px 16px;font-size:.8rem;font-weight:600;margin-bottom:18px}
+.hero h1{font-size:2.9rem;line-height:1.12;font-weight:900}
+.hero h1 em{color:var(--menta);font-style:normal}
+.hero .sub{margin:18px 0 26px;font-size:1.05rem;color:#eae4ff;max-width:34rem}
+.hero .checks{margin-top:18px;font-size:.85rem;color:#d9ccff}
+/* phone mockup */
+.phone{background:#14161f;border-radius:34px;padding:12px;box-shadow:0 24px 60px rgba(0,0,0,.35);max-width:330px;margin-left:auto}
+.phone-scr{background:#fdf8f1;border-radius:24px;overflow:hidden}
+.ph-head{background:linear-gradient(135deg,#2c1200,#5c2d00);color:#fff;padding:14px 16px}
+.ph-head .nm{font-weight:800;color:#f5b731}.ph-head .sb{font-size:.66rem;opacity:.85}
+.ph-open{display:inline-block;background:#22c55e;font-size:.6rem;font-weight:700;border-radius:10px;padding:2px 8px;margin-top:5px}
+.ph-item{display:flex;align-items:center;gap:10px;background:#fff;margin:8px 10px;border-radius:12px;padding:9px 10px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.ph-item .th{width:38px;height:38px;border-radius:9px;flex-shrink:0;background-size:cover;background-position:center}
+.ph-item .in{flex:1;min-width:0}.ph-item b{font-size:.72rem;display:block;color:#2e1608}
+.ph-item small{font-size:.6rem;color:#8a7060}
+.ph-item .pr{font-weight:800;font-size:.72rem;color:#5c2d00}
+.ph-item .mais{width:22px;height:22px;border-radius:50%;background:#d4961a;color:#2c1200;font-weight:800;
+ display:flex;align-items:center;justify-content:center;font-size:.85rem}
+.ph-cta{display:block;background:#22c55e;color:#fff;text-align:center;font-size:.72rem;font-weight:700;
+ margin:10px;border-radius:10px;padding:9px}
+/* STATS */
+.stats{background:var(--navy);color:#fff;padding:26px 0}
+.stats-in{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;text-align:center}
+.stats b{display:block;font-size:1.5rem;color:var(--menta);font-weight:800}
+.stats span{font-size:.8rem;color:#aab0c4}
+/* SECTIONS */
+section{padding:64px 0}
+.eyebrow{text-align:center;color:var(--roxo);font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}
+h2{text-align:center;font-size:2rem;font-weight:800;margin:8px 0 10px}
+.lead{text-align:center;color:var(--mut);max-width:44rem;margin:0 auto 40px}
+/* compare */
+.duas{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:880px;margin:0 auto}
+.colcard{border-radius:18px;padding:28px}
+.colcard h3{font-size:1.1rem;margin-bottom:14px}
+.colcard ul{list-style:none}
+.colcard li{padding:7px 0;font-size:.92rem}
+.col-ruim{background:var(--cz)}.col-ruim li::before{content:"✕  ";color:#ef4444;font-weight:700}
+.col-bom{background:linear-gradient(150deg,var(--roxo2),var(--roxoE));color:#fff}
+.col-bom li::before{content:"✓  ";color:var(--menta);font-weight:700}
+/* features */
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.feat{background:#fff;border:1px solid #ece8f6;border-radius:16px;padding:24px;box-shadow:0 4px 18px rgba(31,36,48,.05)}
+.feat .em{font-size:1.6rem}
+.feat h3{font-size:1rem;margin:10px 0 6px}
+.feat p{font-size:.87rem;color:var(--mut)}
+.feat.destaque{border-color:var(--verde);background:#f2fdf5}
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:920px;margin:0 auto}
+.step{text-align:center;padding:10px}
+.step .n{width:52px;height:52px;border-radius:50%;background:var(--roxo);color:#fff;font-weight:800;font-size:1.3rem;
+ display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+.step h3{font-size:1.05rem;margin-bottom:8px}
+.step p{font-size:.88rem;color:var(--mut)}
+/* demo */
+.demo{background:var(--cz)}
+.demo-card{background:#fff;border-radius:20px;padding:34px;max-width:760px;margin:0 auto;text-align:center;box-shadow:0 8px 30px rgba(31,36,48,.08)}
+.demo-card .em{font-size:2.4rem}
+.demo-card h3{font-size:1.3rem;margin:10px 0}
+.demo-card p{color:var(--mut);font-size:.95rem;margin-bottom:20px}
+/* planos */
+.planos-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:760px;margin:0 auto}
+.plano{border:1px solid #ece8f6;border-radius:20px;padding:30px;position:relative;background:#fff}
+.plano.pro{border:2px solid var(--roxo);box-shadow:0 12px 34px rgba(109,40,217,.15)}
+.plano .tag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--roxo);color:#fff;
+ font-size:.72rem;font-weight:700;border-radius:20px;padding:4px 14px}
+.plano h3{font-size:1.1rem}
+.plano .preco{font-size:2.3rem;font-weight:900;margin:8px 0 2px}
+.plano .preco small{font-size:.9rem;font-weight:600;color:var(--mut)}
+.plano ul{list-style:none;margin:16px 0 22px}
+.plano li{padding:6px 0;font-size:.9rem}
+.plano li::before{content:"✓  ";color:var(--verde);font-weight:700}
+.obs{max-width:760px;margin:22px auto 0;text-align:center;font-size:.88rem;color:var(--mut)}
+.obs b{color:var(--verde2)}
+/* faq */
+.faq{max-width:720px;margin:0 auto}
+.faq details{background:#fff;border:1px solid #ece8f6;border-radius:12px;padding:16px 20px;margin-bottom:10px}
+.faq summary{font-weight:700;cursor:pointer;font-size:.95rem}
+.faq p{margin-top:10px;font-size:.9rem;color:var(--mut)}
+/* CTA final */
+.ctafinal{background:linear-gradient(150deg,var(--roxo2),var(--roxoE));color:#fff;text-align:center}
+.ctafinal h2{color:#fff}
+.ctafinal p{color:#e5dcff;margin-bottom:26px}
+/* footer */
+footer{background:var(--navy);color:#9aa1b5;text-align:center;padding:26px 20px;font-size:.82rem}
+.zap-flu{position:fixed;right:18px;bottom:18px;width:56px;height:56px;border-radius:50%;background:var(--verde);
+ display:flex;align-items:center;justify-content:center;font-size:1.7rem;box-shadow:0 8px 24px rgba(0,0,0,.25);z-index:60}
+@media(max-width:860px){
+ .hero-in{grid-template-columns:1fr}
+ .phone{margin:26px auto 0}
+ .hero h1{font-size:2.1rem}
+ .stats-in{grid-template-columns:1fr 1fr;gap:20px}
+ .duas,.feats,.steps,.planos-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav><div class="nav-in">
+  <div class="logo"><span class="ic">⚡</span>Pede<span class="ja">Já</span></div>
+  <a class="btn btn-borda btn-nav" href="#planos">Ver planos</a>
+</div></nav>
+
+<header class="hero"><div class="wrap hero-in">
+  <div>
+    <span class="tagchip">Sistema de delivery próprio</span>
+    <h1>Seu delivery <em>sem comissão</em>, direto no seu WhatsApp.</h1>
+    <p class="sub">Cardápio digital onde o cliente monta o pedido e ele cai pronto no seu WhatsApp —
+    e um painel completo para você gerenciar vendas, cardápio e promoções. Você fica com 100% da venda.</p>
+    <a class="btn btn-verde" href="https://wa.me/5588981802611?text=Quero%20o%20PedeJ%C3%A1%20no%20meu%20delivery">Quero meu delivery</a>
+    &nbsp;<a class="btn btn-borda" href="#planos">Ver planos e preços</a>
+    <div class="checks">✓ Sem taxa por pedido · ✓ Pix, cartão e dinheiro · ✓ Painel de gestão incluso</div>
+  </div>
+  <div class="phone"><div class="phone-scr">
+    <div class="ph-head"><span class="nm">🍞 Pão Caseiro da Elane</span><div class="sb">Marmitaria — Canoa Quebrada</div>
+    <span class="ph-open">● Aberto agora</span></div>
+    <div class="ph-item"><div class="th" style="background-image:url('https://images.unsplash.com/photo-1547592180-85f173990554?w=100&q=60')"></div>
+      <div class="in"><b>Marmita Tradicional</b><small>escolha 1 de 9 proteínas</small></div><span class="pr">R$ 20</span><span class="mais">+</span></div>
+    <div class="ph-item"><div class="th" style="background-image:url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=100&q=60')"></div>
+      <div class="in"><b>Marmita Fit</b><small>leve e saudável</small></div><span class="pr">R$ 27</span><span class="mais">+</span></div>
+    <div class="ph-item"><div class="th" style="background-image:url('https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=100&q=60')"></div>
+      <div class="in"><b>Lasanha 500ml</b><small>escolha o molho</small></div><span class="pr">R$ 25</span><span class="mais">+</span></div>
+    <a class="ph-cta" href="https://paocaseiro-elane.pages.dev" target="_blank">📲 Enviar pedido pelo WhatsApp</a>
+  </div></div>
+</div></header>
+
+<div class="stats"><div class="wrap stats-in">
+  <div><b>0%</b><span>de comissão por pedido</span></div>
+  <div><b>48h</b><span>para colocar no ar</span></div>
+  <div><b>Pix · Cartão · Dinheiro</b><span>todas as formas de pagamento</span></div>
+  <div><b>100%</b><span>da venda é sua</span></div>
+</div></div>
+
+<section><div class="wrap">
+  <div class="eyebrow">Por que sair do iFood</div>
+  <h2>A comissão come o seu lucro</h2>
+  <p class="lead">A cada R$ 100 vendidos no marketplace, boa parte fica pelo caminho. Com o PedeJá, o cliente é seu e o dinheiro também.</p>
+  <div class="duas">
+    <div class="colcard col-ruim"><h3>Vendendo só no marketplace</h3><ul>
+      <li>Até 30% de comissão por pedido</li><li>O cliente é do app, não seu</li>
+      <li>Você não tem o contato pra chamar de volta</li><li>Briga de preço com centenas de lojas</li></ul></div>
+    <div class="colcard col-bom"><h3>Com o PedeJá</h3><ul>
+      <li>0% de comissão — você fica com tudo</li><li>O contato do cliente fica com você</li>
+      <li>Promoção direto no WhatsApp de quem já comprou</li><li>Sua marca, seu cardápio, seu link</li></ul></div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <div class="eyebrow">Tudo que vem junto</div>
+  <h2>Um delivery completo, fácil de usar</h2>
+  <p class="lead">Feito para o cliente pedir em poucos toques — e para você gerenciar o negócio de verdade.</p>
+  <div class="feats">
+    <div class="feat"><span class="em">📱</span><h3>Cardápio digital com fotos</h3><p>O cliente monta o pedido sozinho: tamanhos, proteínas e acompanhamentos com regras automáticas.</p></div>
+    <div class="feat"><span class="em">💬</span><h3>Pedido no WhatsApp</h3><p>Chega prontinho no seu WhatsApp com itens, endereço, localização GPS e total.</p></div>
+    <div class="feat"><span class="em">💳</span><h3>Pix, cartão e dinheiro</h3><p>No Pix, o site mostra sua chave e pede o comprovante para confirmar o pedido.</p></div>
+    <div class="feat destaque"><span class="em">📊</span><h3>Painel de vendas em tempo real</h3><p>Faturamento, ticket médio, gráficos, horários de pico e status de cada pedido (recebido → entrega).</p></div>
+    <div class="feat destaque"><span class="em">✏️</span><h3>Cardápio editável por você</h3><p>Mude preço, pause item ou marque esgotado em 1 clique, do celular — sem depender de ninguém.</p></div>
+    <div class="feat destaque"><span class="em">🎟️</span><h3>Cupons + recuperação de vendas</h3><p>Crie promoções com validade e limite, e chame no WhatsApp quem abandonou o carrinho.</p></div>
+    <div class="feat"><span class="em">🛵</span><h3>Taxa por bairro</h3><p>Valor de entrega por bairro, com opção de retirada na loja.</p></div>
+    <div class="feat"><span class="em">📇</span><h3>Base de clientes sua</h3><p>Telefones e histórico de compras exportáveis para suas campanhas.</p></div>
+    <div class="feat"><span class="em">🔒</span><h3>Segurança de verdade</h3><p>Preços validados no servidor, login criptografado e dados isolados por loja, na nuvem da Cloudflare.</p></div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <div class="eyebrow">Como funciona</div>
+  <h2>No ar em 3 passos</h2>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><h3>Você manda o cardápio</h3><p>Itens, preços e fotos. A gente monta tudo com a cara da sua loja.</p></div>
+    <div class="step"><div class="n">2</div><h3>A gente configura</h3><p>Bairros, taxas, pagamentos, cupons e seu WhatsApp. Pronto em 48 horas.</p></div>
+    <div class="step"><div class="n">3</div><h3>Você compartilha o link</h3><p>Na bio, no status e no QR Code da loja. Os pedidos começam a cair.</p></div>
+  </div>
+</div></section>
+
+<section class="demo"><div class="wrap">
+  <div class="eyebrow">Veja funcionando</div>
+  <h2>Experimente um delivery de verdade</h2>
+  <div class="demo-card">
+    <span class="em">🍞</span>
+    <h3>Pão Caseiro da Elane — Marmitaria</h3>
+    <p>Cliente real usando o PedeJá em Canoa Quebrada. Abra no celular, monte uma marmita escolhendo a proteína,
+    aplique um cupom e veja como é simples. É exatamente assim que vai ficar o seu.</p>
+    <a class="btn btn-verde" href="https://paocaseiro-elane.pages.dev" target="_blank">Abrir a demonstração</a>
+  </div>
+</div></section>
+
+<section id="planos"><div class="wrap">
+  <div class="eyebrow">Planos</div>
+  <h2>Escolha o seu</h2>
+  <p class="lead">Mensalidade simples, sem fidelidade. Comece pequeno e cresça quando quiser.</p>
+  <div class="planos-grid">
+    <div class="plano"><h3>Básico</h3><div class="preco">R$ 79<small>/mês</small></div><ul>
+      <li>Cardápio digital com fotos</li><li>Pedidos no WhatsApp + link e QR Code</li>
+      <li>Painel completo: vendas, status e relatórios</li><li>Cupons de desconto</li>
+      <li>Hospedagem, segurança e atualizações</li><li>Suporte via WhatsApp</li></ul>
+      <a class="btn btn-borda" style="width:100%;text-align:center" href="https://wa.me/5588981802611?text=Quero%20o%20plano%20B%C3%A1sico%20do%20PedeJ%C3%A1">Começar</a></div>
+    <div class="plano pro"><span class="tag">Mais escolhido</span><h3>Pro</h3><div class="preco">R$ 149<small>/mês</small></div><ul>
+      <li>Tudo do Básico</li><li>Domínio próprio (.com.br)</li>
+      <li>Relatório mensal de vendas</li><li>Ajustes de cardápio ilimitados</li>
+      <li>Suporte prioritário</li></ul>
+      <a class="btn btn-verde" style="width:100%;text-align:center" href="https://wa.me/5588981802611?text=Quero%20o%20plano%20Pro%20do%20PedeJ%C3%A1">Quero esse</a></div>
+  </div>
+  <p class="obs">Implantação (uma vez): R$ 197 — montagem do cardápio, configuração e treinamento.<br>
+  <b>🎁 Oferta de lançamento: implantação grátis para os 5 primeiros clientes · 7 dias de garantia.</b></p>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <div class="eyebrow">Dúvidas</div>
+  <h2>Perguntas frequentes</h2>
+  <div class="faq">
+    <details><summary>Preciso pagar comissão por pedido?</summary><p>Não. Você paga só a mensalidade do plano. 100% do valor de cada venda fica com você.</p></details>
+    <details><summary>Em quanto tempo fica pronto?</summary><p>Em até 48 horas depois que você envia o cardápio. A gente monta, configura, treina sua equipe e entrega o link.</p></details>
+    <details><summary>Consigo mudar preços e pausar itens sozinho?</summary><p>Sim! O painel tem a área "Cardápio": você muda preço, marca esgotado ou pausa um item em 1 clique, direto do celular.</p></details>
+    <details><summary>Funciona no celular do meu cliente?</summary><p>Sim. É só abrir o link no navegador, sem instalar nada. Funciona em qualquer celular.</p></details>
+    <details><summary>Como recebo os pedidos?</summary><p>Cada pedido chega no seu WhatsApp com itens, endereço, localização e total — e também aparece no seu painel, onde você acompanha o status até a entrega.</p></details>
+    <details><summary>É seguro? Podem alterar os preços do meu pedido?</summary><p>Não. Todos os valores são validados no servidor: mesmo que alguém mexa no navegador, o total oficial é recalculado na nuvem. Seu painel tem senha criptografada e bloqueio contra tentativas de invasão.</p></details>
+    <details><summary>Tem fidelidade ou multa?</summary><p>Não. Você pode cancelar quando quiser. A ideia é que você fique porque vale a pena.</p></details>
+  </div>
+</div></section>
+
+<section class="ctafinal"><div class="wrap">
+  <h2>Pronto para parar de pagar comissão?</h2>
+  <p>Fale com a gente no WhatsApp. Em 1 conversa você já entende como vai funcionar no seu delivery.</p>
+  <a class="btn btn-verde" href="https://wa.me/5588981802611?text=Quero%20o%20PedeJ%C3%A1%20no%20meu%20delivery">Falar no WhatsApp</a>
+</div></section>
+
+<footer><div class="logo" style="justify-content:center;color:#fff;margin-bottom:6px"><span class="ic">⚡</span>Pede<span class="ja">Já</span></div>
+Seu delivery próprio, sem comissão. • PedeJá © 2026</footer>
+
+<a class="zap-flu" href="https://wa.me/5588981802611?text=Quero%20o%20PedeJ%C3%A1%20no%20meu%20delivery">🟢</a>
+
+</body>
+</html>
