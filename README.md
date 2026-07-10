@@ -10,4 +10,4 @@ Página de vendas do PedeJá (sistema de delivery sem comissão).
 1. Edite `index.html` e faça commit aqui (fonte da verdade)
 2. Cloudflare Dash → Workers & Pages → **pedeja** → Create deployment → upload do `index.html`
 
-Planos atuais: Implantação R$ 197 · Básico R$ 79/mês · Pro R$ 149/mês.
+Planos (lançamento): Implantação grátis · Básico R$ 59/mês · Pro R$ 99/mês.
